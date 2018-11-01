@@ -1,4 +1,20 @@
-<!doctype html>
+@php
+    $public='';
+    if(App::environment('production')&& config('app.isSharedHosting'))
+    $public ='public';
+    function refineTime($date){
+        if (date('YMd',strtotime($date)) == date('YMd')){
+            return (date('H:i',strtotime($date)));
+        } elseif (date('Y',strtotime($date)) == date('Y')){
+            return (date('M d ',strtotime($date)));
+        } elseif (date('Y',strtotime($date)) !== date('Y')){
+            return (date('M d, Y',strtotime($date)));
+        }
+
+        return date('M d, Y',strtotime($date));
+    }
+@endphp
+        <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -9,7 +25,11 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
 
+
     <!-- Styles -->
+    <link rel="stylesheet" id="css-main" href="{{asset($public.'/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" id="css-main" href="{{asset($public.'/css/datatables.min.css')}}">
+
     <style>
         html, body {
             background-color: #fff;
@@ -64,18 +84,19 @@
     </style>
 </head>
 <body>
-<div class="flex-center position-ref full-height">
+<div class="flex-center position-ref">
     @if (Route::has('login'))
         <div class="top-right links">
             @auth
                 <a href="{{ url('/home') }}">Home</a>
-                @else
-                    <a href="{{ route('login') }}">Login</a>
+            @endauth
+            @guest
+                <a href="{{ route('login') }}">Login</a>
 
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}">Register</a>
-                    @endif
-                    @endauth
+                @if (Route::has('register'))
+                    <a href="{{ route('register') }}">Register</a>
+                @endif
+            @endguest
         </div>
     @endif
 
@@ -96,7 +117,78 @@
             <a href="https://linkedin.com/nduovictor">About us</a>
             <a href="https://bitbucket.org/GreenWhiteDev/intelligentquiz">Source</a>
         </div>
+        <div>
+
+        </div>
+        <div class="row my-5">
+            <div class="col-md-7">
+                <div class="card-title">
+                    <h3>List of Users</h3>
+                </div>
+                <div class="card-body">
+                    <table class="table table-responsive table-hover table-striped">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Title</th>
+                            <th>Full Name</th>
+                            <th>Username</th>
+                            <th>Phone No.</th>
+                            <th>Joined</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        @foreach($users as $user)
+                            <tr>
+                                <td>{{$loop->iteration}}</td>
+                                <td>{{$user->title}}</td>
+                                <td>{{"$user->first_name $user->last_name"}}</td>
+                                <td>{{$user->name}}</td>
+                                <td>{{$user->phone_no}}</td>
+                                <td>{{refineTime($user->created_at)}}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="card-title">
+                    <h3>List of Users</h3>
+                </div>
+                <div class="card-body">
+                    <table class="table table-responsive table-hover table-striped col-12">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Username</th>
+                            <th>Score</th>
+                            <th>Time</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        @foreach($results as $result)
+                            <tr>
+                                <td>{{$loop->iteration}}</td>
+                                <td>{{$result->name}}</td>
+                                <td>{{$result->score}}</td>
+                                <td>{{refineTime($result->created_at)}}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+<script src="{{asset($public.'/js/codebase.min-1.4.js')}}"></script>
+<script src="{{asset($public.'/js/datatables.min.js')}}"></script>
+
+<script>
+    $('.table').DataTable();
+</script>
 </body>
 </html>

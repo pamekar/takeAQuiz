@@ -12,7 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $data['users']= \App\User::orderBy('created_at','desc')->get();
+    $data['results']= \App\Result::orderBy('created_at','desc')->get();
+    return view('welcome',$data);
 });
 
 Auth::routes();
