@@ -155,7 +155,7 @@
             </div>
             <div class="col-md-5">
                 <div class="card-title">
-                    <h3>List of Users</h3>
+                    <h3>Result List</h3>
                 </div>
                 <div class="card-body">
                     <table class="table table-responsive table-hover table-striped col-12">

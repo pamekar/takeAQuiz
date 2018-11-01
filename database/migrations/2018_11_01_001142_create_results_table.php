@@ -17,6 +17,8 @@ class CreateResultsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('score');
+            $table->integer('duration');
+            $table->integer('question_count');
             $table->timestamps();
         });
     }
