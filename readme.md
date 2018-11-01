@@ -50,3 +50,5 @@ Now, visit http://127.0.0.1:8000 and you should see the IntelligentQuiz App in f
 
 You can check out the demo
 [Intelligent Quiz](http://intelligentquiz.herokuapp.com).
+
+P.S: For the demo, any email can be selected from the landing page for a "test login". The password is **innovation**

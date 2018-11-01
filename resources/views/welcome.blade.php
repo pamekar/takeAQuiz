@@ -144,7 +144,7 @@
                                 <td>{{$user->title}}</td>
                                 <td>{{"$user->first_name $user->last_name"}}</td>
                                 <td>{{$user->name}}</td>
-                                <td>{{$user->phone_no}}</td>
+                                <td>{{$user->email}}</td>
                                 <td>{{refineTime($user->created_at)}}</td>
                             </tr>
                         @endforeach
