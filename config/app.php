@@ -15,6 +15,8 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    'isSharedHosting' => env('APP_SHARED_HOSTING',true),
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment
