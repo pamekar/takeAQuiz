@@ -10,9 +10,9 @@
 @endsection
 @section('content')
     <main id="main-container" style="min-height: 258px;">
-        <form action="{{url('/jobs/test/submit')}}" method="post" id="questions-form">
+        <form action="{{url('/test/submit')}}" method="post" id="questions-form">
             {{csrf_field()}}
-            <input type="hidden" name="rid" value="{{$result->result_id}}">
+            <input type="hidden" name="rid" value="{{$result_id}}">
             <div class="content content-full">
                 <div class="row gutters-tiny js-appear-enabled animated fadeIn" data-toggle="appear">
                     <div class="block block-mode-loading-refresh col-12">
@@ -24,11 +24,11 @@
                             </tr>
                             <tr>
                                 <td style="text-align:center;">
-                                    <span class="text-success font-size-h1 font-w600">{{$title}}</span>
+                                    <span class="text-success font-size-h1 font-w600">Your Test</span>
                                 </td>
                                 <td>
                                     <span class="text-danger timer font-size-h1 font-w600"
-                                          data-minutes-left={{$test->duration}}></span>
+                                          data-minutes-left={{$duration}}></span>
                                 </td>
                                 <td style="vertical-align: middle; text-align: center">
                                     <input type="submit" value="Submit" class="btn btn-primary btn-lg">
@@ -49,9 +49,6 @@
                                     @endfor
                                 </ul>
                                 <div class="block-content tab-content">
-                                    @php
-                                        $j=1;
-                                    @endphp
                                     @foreach($questions as $question)
                                         <div class="tab-pane @if($j==1) active @endif" id="question-{{$j}}"
                                              role="tabpanel">

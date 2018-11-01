@@ -21,6 +21,7 @@ class ResultsTableSeeder extends Seeder
                 'score'          => mt_rand(20, 100),
                 'duration'       => mt_rand(5, 30),
                 'question_count' => mt_rand(5, 50),
+                'started_at'     => $date,
                 'created_at'     => $date,
                 'updated_at'     => $date
             ]);

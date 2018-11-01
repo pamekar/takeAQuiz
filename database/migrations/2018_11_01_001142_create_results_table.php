@@ -15,10 +15,12 @@ class CreateResultsTable extends Migration
     {
         Schema::create('results', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('result_id');
             $table->string('name');
-            $table->integer('score');
+            $table->integer('score')->default(0);
             $table->integer('duration');
             $table->integer('question_count');
+            $table->timestamp('started_at');
             $table->timestamps();
         });
     }
