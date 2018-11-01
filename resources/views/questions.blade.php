@@ -1,6 +1,6 @@
 @php    $public='';    if(config('app.env') == 'production')    $public ='public'; @endphp
 @extends('layouts.dashboard')
-@section('title',$title)
+@section('title','Test')
 @section('styles')
     <style>
         .timer div {
@@ -48,6 +48,9 @@
                                         </li>
                                     @endfor
                                 </ul>
+                                @php
+                                    $j=1;
+                                @endphp
                                 <div class="block-content tab-content">
                                     @foreach($questions as $question)
                                         <div class="tab-pane @if($j==1) active @endif" id="question-{{$j}}"
@@ -96,11 +99,12 @@
     </main>
 @endsection
 @section('scripts')
-    <script src="{{asset($public.'/dashboard/js/jquery.simple.timer.js')}}"></script>
+    <script src="{{asset($public.'/js/jquery.simple.timer.js')}}"></script>
     <script>
         window.setInterval(submitQuestions, 1000);
-        function submitQuestions(){
-            var form = $('#questions-form');
+
+        function submitQuestions() {
+            var form = document.getElementById('questions-form');
 
             var data = new FormData(form);
 
@@ -121,7 +125,7 @@
         }
 
         $('.timer').startTimer({
-            onComplete: function(element){
+            onComplete: function (element) {
                 element.addClass('is-complete');
                 swal('Your Time is UP', {
                     icon: 'error',

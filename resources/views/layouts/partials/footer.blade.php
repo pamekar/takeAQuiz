@@ -10,3 +10,4 @@
         </div>
     </div>
 </footer>
+@include('layouts.partials.modal')

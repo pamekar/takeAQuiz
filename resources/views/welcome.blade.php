@@ -25,7 +25,6 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
 
-
     <!-- Styles -->
     <link rel="stylesheet" id="css-main" href="{{asset($public.'/css/bootstrap.min.css')}}">
     <link rel="stylesheet" id="css-main" href="{{asset($public.'/css/datatables.min.css')}}">
@@ -110,8 +109,8 @@
                 <a href="{{route('login')}}">Login</a>
                 <a href="{{route('register')}}">Register</a>
             @endguest
-            <a href="{{url('/test')}}">Take a test</a>
             @auth
+                <a href="javascript:void(0)" data-toggle="modal" data-target="#testModal">Take a test</a>
                 <a href="{{url('/home')}}">View Dashboard</a>
             @endauth
             <a href="https://linkedin.com/nduovictor">About us</a>
@@ -184,6 +183,7 @@
         </div>
     </div>
 </div>
+@include('layouts.partials.modal')
 <script src="{{asset($public.'/js/codebase.min-1.4.js')}}"></script>
 <script src="{{asset($public.'/js/datatables.min.js')}}"></script>
 

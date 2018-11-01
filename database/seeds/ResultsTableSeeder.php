@@ -18,6 +18,7 @@ class ResultsTableSeeder extends Seeder
             $date = $faker->dateTimeBetween('-2 years', 'now');
             \Illuminate\Support\Facades\DB::table('results')->insert([
                 'name'           => $faker->randomElement($users),
+                'result_id'      => $faker->unique()->md5,
                 'score'          => mt_rand(20, 100),
                 'duration'       => mt_rand(5, 30),
                 'question_count' => mt_rand(5, 50),
