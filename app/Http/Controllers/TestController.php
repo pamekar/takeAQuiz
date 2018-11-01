@@ -9,10 +9,36 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\View;
 
 class TestController extends Controller
 {
     //
+    public function deleteTest(Request $request)
+    {
+        $id = $request->id;
+        $isResult = Result::where("result_id", $id)
+            ->where('name', Auth::user()->name)->first();
+        if ($isResult) {
+            Result::destroy($isResult->id);
+            $message = 'Your Test result was deleted successfully';
+            $status = 'success';
+        } else {
+            $message = 'Oops! Looks like an error occurred';
+            $status = 'danger';
+        }
+        $home = new HomeController();
+        $subData = $home->getData();
+        $html = View::make('layouts.partials.home', $subData);
+        $data = [
+            'status' => $message,
+            'state'  => $status,
+            'html'   => $html->render()
+        ];
+
+        return response()->json($data);
+    }
+
     public function startTest(Request $request)
     {
         // drg >> get user's specification

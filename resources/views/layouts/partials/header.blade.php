@@ -16,6 +16,9 @@
                 <li>
                     <a href="{{url()->previous()}}"><i class="si si-action-undo"></i>Go Back</a>
                 </li>
+                <li>
+                    <a href="javascript:void(0)" data-toggle="modal" data-target="#testModal"><i class="si si-notebook"></i>Take Test</a>
+                </li>
             </ul>
         </div>
         <div class="content-header-section">
