@@ -163,6 +163,7 @@
                             <th>#</th>
                             <th>Username</th>
                             <th>Score</th>
+                            <th>Count</th>
                             <th>Time</th>
                         </tr>
                         </thead>
@@ -172,7 +173,8 @@
                             <tr>
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$result->name}}</td>
-                                <td>{{$result->score}}</td>
+                                <td>{{"$result->score%"}}</td>
+                                <td>{{$result->question_count }}</td>
                                 <td>{{refineTime($result->created_at)}}</td>
                             </tr>
                         @endforeach

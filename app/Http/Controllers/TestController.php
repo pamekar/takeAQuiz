@@ -7,6 +7,7 @@ use App\Result;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
 class TestController extends Controller
@@ -44,29 +45,42 @@ class TestController extends Controller
         $isValid = Result::where('result_id', $request->rid)->first();
 
         if ($isValid) {
-            $score = Question::where(function ($query) use ($questions) {
-                foreach ($questions as $question => $answer) {
-                    $query->orWhere([
-                        ['question_id', $question],
-                        ['answer', $answer]
-                    ]);
-                }
-            })->count();
+            $date = date_create($isValid->started_at);
+            date_add($date,
+                date_interval_create_from_date_string("$isValid->duration"));
+            if ($date < Carbon::now()) {
+                $score = Question::where(function ($query) use ($questions) {
+                    foreach ($questions as $question => $answer) {
+                        $query->orWhere([
+                            ['question_id', $question],
+                            ['answer', $answer]
+                        ]);
+                    }
+                })->count();
 
-            $result = Result::find($isValid->id);
-            $result->score = $score;
+
+                $result = Result::find($isValid->id);
+                $percentage = ($score / $result->question_count) * 100;
+                $result->score = $percentage;
 
                 $result->save();
 
                 /*Mail::to(Auth::user()->email)
                     ->send(new \App\Mail\FinishedTest($result->id));*/
 
-                $data['score'] = $score;
-                $data['percent'] = ($score /$result->question_count) * 100;
 
+                $data['result']
+                    = "$score correctly answered out of $result->question_count questions given. <br><strong>($percentage %)</strong>";
+
+            } else {
+                $data['error']
+                    = "Oops! The test is expired.";
+            }
         } else {
-            $data['error'] = "Oops! This is not a valid test";
+            $data['error']
+                = "Oops! This is not a valid test";
         }
+
         if ($request->ajax()) {
             return $request->json($data);
         }
