@@ -14,7 +14,7 @@
     <link rel="icon" type="image/png" sizes="192x192" href="{{asset('/png/favicon-192x192.png')}}">
     <link rel="apple-touch-icon" sizes="180x180"
           href="{{asset('/png/apple-touch-icon-180x180.png')}}">
-    <link rel="stylesheet" id="css-main" href="{{asset('/css/codebase.min-1.4.css')}}">
+    <link rel="stylesheet" id="css-main" href="{{asset('/css/greenwhitedev.min-1.4.css')}}">
     <link rel="stylesheet" id="css-main" href="{{asset('/css/datatables.min.css')}}">
     <link rel="stylesheet" href="{{asset('/css/sweetalert.min.css')}}">
     @yield('styles')
@@ -28,7 +28,7 @@
     </main>
     @include('layouts.partials.footer')
 </div>
-<script src="{{asset('/js/codebase.min-1.4.js')}}"></script>
+<script src="{{asset('/js/greenwhitedev.min-1.4.js')}}"></script>
 <script src="{{asset('/js/be_pages_dashboard.js')}}"></script>
 <script src="{{asset('/js/datatables.min.js')}}"></script>
 <script src="{{asset('/js/sweetalert.min.js')}}"></script>

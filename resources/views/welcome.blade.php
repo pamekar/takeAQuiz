@@ -183,7 +183,7 @@
     </div>
 </div>
 @include('layouts.partials.modal')
-<script src="{{asset('/js/codebase.min-1.4.js')}}"></script>
+<script src="{{asset('/js/greenwhitedev.min-1.4.js')}}"></script>
 <script src="{{asset('/js/datatables.min.js')}}"></script>
 
 <script>

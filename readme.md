@@ -37,7 +37,7 @@ Quick Note: If this is a new project, make sure to install the default user auth
 6. Lastly, run the seed files to seed your database with a little data:
 
     ```
-    php artisan db:seed --class=ChatterTableSeeder
+    php artisan db:seed
     ```
 
 7. To start the application, run
