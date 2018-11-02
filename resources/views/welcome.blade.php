@@ -88,6 +88,8 @@
         <div class="top-right links">
             @auth
                 <a href="{{ url('/home') }}">Home</a>
+                <a href="{{ route('logout') }}"
+                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
             @endauth
             @guest
                 <a href="{{ route('login') }}">Login</a>
@@ -129,10 +131,9 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Title</th>
-                            <th>Full Name</th>
+                            <th>Name</th>
                             <th>Username</th>
-                            <th>Phone No.</th>
+                            <th>Email</th>
                             <th>Joined</th>
                         </tr>
                         </thead>
@@ -141,8 +142,7 @@
                         @foreach($users as $user)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td>{{$user->title}}</td>
-                                <td>{{"$user->first_name $user->last_name"}}</td>
+                                <td>{{"$user->title $user->first_name $user->last_name"}}</td>
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->email}}</td>
                                 <td>{{refineTime($user->created_at)}}</td>

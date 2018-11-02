@@ -71,11 +71,8 @@ class TestController extends Controller
         $isValid = Result::where('result_id', $request->rid)->first();
 
         if ($isValid) {
-            $date = date_create($isValid->started_at);
-            date_add($date,
-                date_interval_create_from_date_string("$isValid->duration"));
-            if ($date < Carbon::now()) {
-                $score = Question::where(function ($query) use ($questions) {
+
+  $score = Question::where(function ($query) use ($questions) {
                     foreach ($questions as $question => $answer) {
                         $query->orWhere([
                             ['question_id', $question],
@@ -97,11 +94,6 @@ class TestController extends Controller
 
                 $data['result']
                     = "$score correctly answered out of $result->question_count questions given. <br><strong>($percentage %)</strong>";
-
-            } else {
-                $data['error']
-                    = "Oops! The test is expired.";
-            }
         } else {
             $data['error']
                 = "Oops! This is not a valid test";

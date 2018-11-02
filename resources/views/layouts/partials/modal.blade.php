@@ -16,11 +16,11 @@
                     {{method_field('put')}}
                     <div class="form-group">
                         <label for="duration">Duration</label>
-                        <input name="duration" id="duration" class="form-control" placeholder="Set test duration">
+                        <input name="duration" id="duration" class="form-control" placeholder="Set test duration" required>
                     </div>
                     <div class="form-group">
                         <label for="count">Number of questions</label>
-                        <input name="count" id="count" class="form-control" placeholder="Set number of questions">
+                        <input name="count" id="count" class="form-control" placeholder="Set number of questions" required>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-info pull-right">

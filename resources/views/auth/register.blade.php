@@ -13,13 +13,8 @@
 
                             <div class="form-group row">
                                 <div class="col-md-6">
-                                    @php
-                                    if(isset($errors))
-                                        print_r($errors)
-                                    @endphp
-
                                     <label for="first_name"
-                                           class="col-form-label text-md-right">{{ __('first_name') }}</label>
+                                           class="col-form-label text-md-right">First Name</label>
 
                                     <input id="first_name" type="text"
                                            class="form-control{{ $errors->has('first_name') ? ' is-invalid' : '' }}"
@@ -35,7 +30,7 @@
                                 <div class="col-md-6">
 
                                     <label for="last_name"
-                                           class="col-form-label text-md-right">{{ __('last_name') }}</label>
+                                           class="col-form-label text-md-right">Last Name</label>
 
                                     <input id="last_name" type="text"
                                            class="form-control{{ $errors->has('last_name') ? ' is-invalid' : '' }}"
@@ -54,7 +49,7 @@
                             <div class="form-group row">
                                 <div class="col-md-6">
 
-                                    <label for="title" class="col-form-label text-md-right">{{ __('title') }}</label>
+                                    <label for="title" class="col-form-label text-md-right">Title</label>
 
                                     <input id="title" type="text"
                                            class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}"
@@ -70,7 +65,7 @@
                                 <div class="col-md-6">
 
                                     <label for="phone_no"
-                                           class="col-form-label text-md-right">{{ __('phone_no') }}</label>
+                                           class="col-form-label text-md-right">Phone No.</label>
 
                                     <input id="phone_no" type="text"
                                            class="form-control{{ $errors->has('phone_no') ? ' is-invalid' : '' }}"
@@ -88,7 +83,7 @@
 
                             <div class="form-group row">
                                 <div class="col-md-6">
-                                    <label for="name" class="col-form-label text-md-right">{{ __('Name') }}</label>
+                                    <label for="name" class="col-form-label text-md-right">Username</label>
                                     <input id="name" type="text"
                                            class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
                                            name="name"
