@@ -1,7 +1,4 @@
 @php
-    $public='';
-    if(App::environment('production')&& config('app.isSharedHosting'))
-    $public ='public';
     function refineTime($date){
         if (date('YMd',strtotime($date)) == date('YMd')){
             return (date('H:i',strtotime($date)));
@@ -26,8 +23,8 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
-    <link rel="stylesheet" id="css-main" href="{{asset($public.'/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" id="css-main" href="{{asset($public.'/css/datatables.min.css')}}">
+    <link rel="stylesheet" id="css-main" href="{{asset('/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" id="css-main" href="{{asset('/css/datatables.min.css')}}">
 
     <style>
         html, body {
@@ -186,8 +183,8 @@
     </div>
 </div>
 @include('layouts.partials.modal')
-<script src="{{asset($public.'/js/codebase.min-1.4.js')}}"></script>
-<script src="{{asset($public.'/js/datatables.min.js')}}"></script>
+<script src="{{asset('/js/codebase.min-1.4.js')}}"></script>
+<script src="{{asset('/js/datatables.min.js')}}"></script>
 
 <script>
     $('.table').DataTable();

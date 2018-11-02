@@ -99,7 +99,7 @@
     </main>
 @endsection
 @section('scripts')
-    <script src="{{asset($public.'/js/jquery.simple.timer.js')}}"></script>
+    <script src="{{asset('/js/jquery.simple.timer.js')}}"></script>
     <script>
         window.setInterval(submitQuestions, 1000);
 

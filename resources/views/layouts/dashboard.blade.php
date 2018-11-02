@@ -1,9 +1,4 @@
-@php
-    $public='';
-    if(App::environment('production')&& config('app.isSharedHosting'))
-    $public ='public';
-@endphp
-        <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -15,13 +10,13 @@
     <title>@yield('title') | {{config('app.name')}}</title>
 
     <!-- Styles -->
-    <link rel="shortcut icon" href="{{asset($public.'/png/favicon.png')}}">
-    <link rel="icon" type="image/png" sizes="192x192" href="{{asset($public.'/png/favicon-192x192.png')}}">
+    <link rel="shortcut icon" href="{{asset('/png/favicon.png')}}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{asset('/png/favicon-192x192.png')}}">
     <link rel="apple-touch-icon" sizes="180x180"
-          href="{{asset($public.'/png/apple-touch-icon-180x180.png')}}">
-    <link rel="stylesheet" id="css-main" href="{{asset($public.'/css/codebase.min-1.4.css')}}">
-    <link rel="stylesheet" id="css-main" href="{{asset($public.'/css/datatables.min.css')}}">
-    <link rel="stylesheet" href="{{asset($public.'/css/sweetalert.min.css')}}">
+          href="{{asset('/png/apple-touch-icon-180x180.png')}}">
+    <link rel="stylesheet" id="css-main" href="{{asset('/css/codebase.min-1.4.css')}}">
+    <link rel="stylesheet" id="css-main" href="{{asset('/css/datatables.min.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/sweetalert.min.css')}}">
     @yield('styles')
 </head>
 <body>
@@ -33,10 +28,10 @@
     </main>
     @include('layouts.partials.footer')
 </div>
-<script src="{{asset($public.'/js/codebase.min-1.4.js')}}"></script>
-<script src="{{asset($public.'/js/be_pages_dashboard.js')}}"></script>
-<script src="{{asset($public.'/js/datatables.min.js')}}"></script>
-<script src="{{asset($public.'/js/sweetalert.min.js')}}"></script>
+<script src="{{asset('/js/codebase.min-1.4.js')}}"></script>
+<script src="{{asset('/js/be_pages_dashboard.js')}}"></script>
+<script src="{{asset('/js/datatables.min.js')}}"></script>
+<script src="{{asset('/js/sweetalert.min.js')}}"></script>
 <script>
     $.ajaxSetup({
         headers: {

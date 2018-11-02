@@ -1,4 +1,3 @@
-@php    $public='';    if(config('app.env') == 'production')    $public ='public'; @endphp
 @extends('layouts.dashboard')
 @section('title',$title)
 @section('content')
