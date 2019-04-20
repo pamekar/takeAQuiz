@@ -16,6 +16,11 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         Schema::defaultStringLength(191);
+        $public = config('app.env') == 'production' ? '/main/public' : '';
+
+        View::share([
+            'public'     => $public,
+        ]);
     }
 
     /**
