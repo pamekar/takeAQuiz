@@ -26,5 +26,12 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //
+
+        $public = config('app.env') == 'production' ? '/main/public' : '';
+
+        View::share([
+            'public'     => $public,
+        ]);
+
     }
 }
