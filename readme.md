@@ -1,5 +1,4 @@
-
-# Intelligent Quiz
+# Take a Quiz
 
 ### Installation
 
@@ -49,6 +48,6 @@ Quick Note: If this is a new project, make sure to install the default user auth
 Now, visit http://127.0.0.1:8000 and you should see the IntelligentQuiz App in front of you!
 
 You can check out the demo
-[Intelligent Quiz](http://intelligentquiz.herokuapp.com).
+[TakeAQuiz](http://takeaquiz.herokuapp.com).
 
-P.S: For the demo, any email can be selected from the landing page for a "test login". The password is **innovation**
+P.S: For the demo, any email can be selected from the landing page for a "test login". The password is **password**
