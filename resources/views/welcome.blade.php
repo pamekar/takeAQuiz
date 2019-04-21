@@ -17,7 +17,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>{{config('app.name')}}</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
@@ -112,8 +112,8 @@
                 <a href="javascript:void(0)" data-toggle="modal" data-target="#testModal">Take a test</a>
                 <a href="{{url('/home')}}">View Dashboard</a>
             @endauth
-            <a href="https://linkedin.com/nduovictor">About us</a>
-            <a href="https://bitbucket.org/GreenWhiteDev/intelligentquiz">Source</a>
+            <a href="https://github.com/pamekar">About us</a>
+            <a href="https://github.com/pamekar/takeAQuiz">Source</a>
         </div>
         <div>
 
